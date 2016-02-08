@@ -1,0 +1,4 @@
+#python
+local_settings.py
+settings.py
+*.pyc
