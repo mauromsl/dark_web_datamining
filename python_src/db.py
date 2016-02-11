@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+''' Controls actions on the database '''
+
 import settings
 import db_patches
 

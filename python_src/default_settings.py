@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+''' D``efault settings template, this should be added to your python_src/settings.py file '''
+
 import mysql.connector
 from mysql.connector import errorcode
 
