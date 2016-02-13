@@ -7,6 +7,7 @@ the database in order to keep schemas consistent across environments
 
 class DBPatch():
     def __init__(self, name, sql, validation, *args, **kwargs):
+        """ Encapsulates the patches to be applied """
         self.name = name
         self.sql = sql
         self.validation = validation
