@@ -10,7 +10,7 @@ def query(query_string, safe_mode=True):
     valid_query = validate_query(query_string, safe_mode)
     if valid_query:
         cursor = settings.connection.cursor()
-        return cursor.execute(query_string, multi=True)
+        return cursor.execute(query_string)
     else:
         raise Exception(
             'SQL verbs that alter schema are not allowed in safe mode')
@@ -32,7 +32,6 @@ def validate_patches():
     """
     for patch in db_patches_list():
         print ("##### validating patch %s ####" % (patch.name))
-        print (patch.validation)
         is_valid = query(patch.validation, safe_mode=False)
         if is_valid:
             print ('Validation OK')

@@ -25,7 +25,7 @@ validation = """
     FROM information_schema.COLUMNS
     WHERE
         TABLE_SCHEMA = 'dark_web'
-        AND TABLE_NAME = 'tblProducts'
+        AND TABLE_NAME = 'tblProduct'
         AND COLUMN_NAME = 'GBP';
         """
 additional_currencies_patch = DBPatch(
