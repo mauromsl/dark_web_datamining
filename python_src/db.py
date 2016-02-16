@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """ Controls actions on the database """
-
+import pandas
 import settings
 from db_patches import db_patches_list
 
@@ -10,7 +10,19 @@ def query(query_string, safe_mode=True):
     valid_query = validate_query(query_string, safe_mode)
     if valid_query:
         cursor = settings.connection.cursor()
-        return cursor.execute(query_string)
+        cursor.execute(query_string)
+        return cursor
+    else:
+        raise Exception(
+            'SQL verbs that alter schema are not allowed in safe mode')
+
+
+def pandas_query(query_string, safe_mode=True):
+    """Given a query string returns a pandas Dataframe"""
+    valid_query = validate_query(query_string, safe_mode)
+    if valid_query:
+        con = settings.connection
+        return pandas.read_sql(query_string, con=con)
     else:
         raise Exception(
             'SQL verbs that alter schema are not allowed in safe mode')
@@ -39,5 +51,6 @@ def validate_patches():
             print ('Not valid - Applying patch ...')
             query(patch.sql, safe_mode=False)
 
-
-validate_patches()
+def insert_converted_prices():
+    sql = "SELECT * FROM `tblProduct`;"
+    return query(sql)
