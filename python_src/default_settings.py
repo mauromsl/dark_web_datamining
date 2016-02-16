@@ -1,26 +1,22 @@
 #!/usr/bin/env python
-''' D``efault settings template, this should be added to your python_src/settings.py file '''
+"""
+Default settings template, this should be added to your python_src/settings.py file
+"""
 
-import mysql.connector
-from mysql.connector import errorcode
+import pymysql
 
 
-DATABASE={
-	'user':'root',
-	'password':'',
-	'host':'127.0.0.1',
-	'database':'', 
+DATABASE = {
+    'user': 'root',
+    'password': '',
+    'host': '127.0.0.1',
+    'database': '',
 }
 
+# Currency API example:
+# http://api.coindesk.com/v1/bpi/historical/close.json?start=2013-09-01&end=2013-09-05
+COINDESK_API = "http://api.coindesk.com/v1/bpi/historical/close.json?start=%s&end=%s"
 
-try:
-  connection = connector.connect(**DATABASE)
-except connector.Error as error:
-  if error.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-    print("Something is wrong with your user name or password")
-  elif error.errno == errorcode.ER_BAD_DB_ERROR:
-    print("Database does not exist")
-  else:
-    print(error)
-else:
-  connection.close()
+
+connection = pymysql.connect(**DATABASE)
+connection.close()
