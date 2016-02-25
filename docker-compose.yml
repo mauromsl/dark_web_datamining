@@ -7,10 +7,11 @@ db:
 
 jupyter:
   build: .
-  container_name: jupyter-service
+  #container-name: jupyter-service
   volumes:
-    - ./python_src:/notebooks/
+    - ./python_src:/jupyter-notebooks/
   ports:
-    - 8888:8888
+    - 0.0.0.0:8888:8888
   tty: true
-
+  links:
+    - db
