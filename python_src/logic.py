@@ -13,4 +13,4 @@ def get_bitcoin_conversions(currency, start_date, end_date):
         currency=currency
         )
     request = requests.get(api_url)
-    return request.json()
+    return request.json().get('bpi')
