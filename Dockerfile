@@ -18,6 +18,12 @@ RUN echo 'options("repos"="http://cran.rstudio.com")' >> /usr/lib/R/etc/Rprofile
 # Install IRkernel
 RUN Rscript -e "install.packages(c('rzmq','repr','IRkernel','IRdisplay'), repos = c('http://irkernel.github.io/', getOption('repos')))" -e "IRkernel::installspec()"
 
+#Install Debian dependencies
+RUN sudo apt-get update
+RUN sudo apt-get install -y\
+	freetype*\
+	python-matplotlib
+
 #Install python requirements
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
