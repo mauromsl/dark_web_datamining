@@ -3,6 +3,7 @@
 import pandas
 from pprint import pprint
 from pymysql import converters
+import pymysql
 
 import logic
 import settings
@@ -13,20 +14,23 @@ def query(query_string, items=None, safe_mode=True):
     """ Given a query string returns a cursor object """
     valid_query = validate_query(query_string, safe_mode)
     if valid_query:
-        cursor = settings.connection.cursor()
+        connection = pymysql.connect(**settings.DATABASE)
+        cursor = connection.cursor()
         cursor.execute(query_string, items)
+        if safe_mode == False:
+            connection.commit()
         return cursor
     else:
         raise Exception(
             'SQL verbs that alter schema are not allowed in safe mode')
 
 
-def pandas_query(query_string, safe_mode=True):
+def pandas_query(query_string, safe_mode=True, *args, **kwargs):
     """Given a query string returns a pandas Dataframe"""
     valid_query = validate_query(query_string, safe_mode)
     if valid_query:
         con = settings.connection
-        return pandas.read_sql(query_string, con=con)
+        return pandas.read_sql(query_string, con=con, *args, **kwargs)
     else:
         raise Exception(
             'SQL verbs that alter schema are not allowed in safe mode')
@@ -55,18 +59,29 @@ def validate_patches():
             print ('Not valid - Applying patch ...')
             query(patch.sql, safe_mode=False)
 
+
 def get_product_bitcoin_prices():
-    return query('SELECT product_id, product_price, time_stamp from tblProduct LIMIT 10;')
+    return query('SELECT product_id, product_price, time_stamp from tblProduct;')
 
 
 def insert_converted_prices(currency, start_date, end_date):
     print ('### Pulling bitcoin price indexes in {} ###'.format(currency))
     rates_dict = logic.get_bitcoin_conversions(currency, start_date, end_date)
+    pprint (rates_dict)
     products = get_product_bitcoin_prices()
-    items = [(product[0], rates_dict.get(product[2])) for product in products.fetchall()]
-    sql =  ('UPDATE tblProduct SET {}'.format(', '.join('{}=%s'.format(currency.lower()) for item in items)))
     print('#### Updating Records ###')
-    return query(sql, items)
+    for product in products.fetchall():
+        sql = '''
+            UPDATE tblProduct SET {} = {}
+            where product_id = {}
+            '''.format(
+                currency,
+                float(rates_dict.get(product[2])) * float(product[1].split(' ')[0]),
+                product[0]
+                )
+        print (sql)
+        q = query(sql, safe_mode=False)
+    return True  # query(sql, items)
 
 #rates = insert_converted_prices('GBP', '2015-01-01', '2016-01-01')
 #q = pandas_query('SELECT * FROM tblProduct limit 10')
