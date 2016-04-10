@@ -34,7 +34,36 @@ additional_currencies_patch = DBPatch(
     validation=validation
 )
 
-patches.append(additional_currencies_patch)
+
+sql = """
+CREATE TABLE `dark_web`.`tblUnit` (
+  `unit_id` INT NOT NULL COMMENT '',
+  `product_id` INT NOT NULL COMMENT '',
+  `value` VARCHAR(45) NOT NULL COMMENT '',
+  `unit_type` VARCHAR(45) NOT NULL COMMENT '',
+  `purity` VARCHAR(45) NULL COMMENT '',
+  PRIMARY KEY (`unit_id`)  COMMENT '',
+  INDEX `fk_tblUnit_1_idx` (`product_id` ASC)  COMMENT '',
+  CONSTRAINT `fk_tblUnit_1`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `dark_web`.`tblProduct` (`product_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+"""
+
+validation = """
+    SELECT *
+    FROM tblProduct;
+    """
+
+units_table_patch = DBPatch(
+    name='additional_currencies_patch',
+    sql=sql,
+    validation=validation
+)
+
+
+patches.append(additional_currencies_patch, units_table_patch)
 
 
 def db_patches_list():
