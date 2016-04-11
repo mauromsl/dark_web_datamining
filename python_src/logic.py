@@ -1,6 +1,12 @@
 import settings
 import requests
 
+VALID_UNITS = {
+    'g': ['g','gram', 'gr', 'grams', 'grs']
+
+    }
+
+
 
 def get_bitcoin_conversions(currency, start_date, end_date):
     """
@@ -14,3 +20,4 @@ def get_bitcoin_conversions(currency, start_date, end_date):
         )
     request = requests.get(api_url)
     return request.json().get('bpi')
+

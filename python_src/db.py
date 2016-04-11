@@ -60,6 +60,14 @@ def validate_patches():
             query(patch.sql, safe_mode=False)
 
 
+def get_drug_products(drug_name):
+    return pandas_query('''
+        SELECT * FROM dark_web.tblProduct 
+        WHERE subCategory_id in 
+            (select subCategory_id from tblSubCategory 
+                where subCategory_name = 'Cocaine');
+        ''')
+
 def get_product_bitcoin_prices():
     return query('SELECT product_id, product_price, time_stamp from tblProduct;')
 

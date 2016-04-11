@@ -63,7 +63,8 @@ units_table_patch = DBPatch(
 )
 
 
-patches.append(additional_currencies_patch, units_table_patch)
+patches.append(additional_currencies_patch)
+patches.append(units_table_patch)
 
 
 def db_patches_list():
