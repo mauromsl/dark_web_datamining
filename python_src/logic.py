@@ -6,6 +6,16 @@ VALID_UNITS = {
 
     }
 
+NUMBER_STRING = {
+    'one': 1,
+    'two': 2,
+    'three': 3,
+    'four': 4,
+    'five': 5,
+    'six': 6,
+    'ten': 10, 
+}
+
 
 
 def get_bitcoin_conversions(currency, start_date, end_date):
