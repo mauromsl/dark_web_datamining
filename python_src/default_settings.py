@@ -1,22 +1,22 @@
-#!/usr/bin/env python
-"""
-Default settings template, this should be added to your python_src/settings.py file
-"""
 
 import pymysql
+from pymysql import converters
+BITCOIN_API = "http://api.coindesk.com/v1/bpi/historical/close.json?start={start_date}&end={end_date}&currency={currency}"
 
+conv = converters.conversions.copy()
+conv[246] = float    # convert decimals to floats
+conv[10] = str
+conv[12] = str
 
 DATABASE = {
     'user': 'root',
     'password': '',
-    'host': '127.0.0.1',
-    'database': '',
+    'host': 'localhost',
+    'database': 'dark_web',
+    'conv': conv,
 }
-
-# Currency API example:
-# http://api.coindesk.com/v1/bpi/historical/close.json?start=2013-09-01&end=2013-09-05
-COINDESK_API = "http://api.coindesk.com/v1/bpi/historical/close.json?start=%s&end=%s"
 
 
 connection = pymysql.connect(**DATABASE)
-connection.close()
+connection.commit()
+cursor = connection.cursor()
