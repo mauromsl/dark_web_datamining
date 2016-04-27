@@ -16,12 +16,14 @@ matplotlib==1.5.1
 mistune==0.7.1
 nbconvert==4.1.0
 nbformat==4.0.1
+nltk==3.2.1
 notebook==4.1.0
 numpy==1.10.4
 pandas==0.17.1
 path.py==8.1.2
 pexpect==4.0.1
 pickleshare==0.6
+Pillow==3.2.0
 ptyprocess==0.5.1
 Pygments==2.1
 PyMySQL==0.7.1
@@ -37,3 +39,4 @@ terminado==0.6
 tornado==4.3
 traitlets==4.1.0
 wheel==0.29.0
+wordcloud==1.2.1
