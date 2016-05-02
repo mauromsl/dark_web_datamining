@@ -1,0 +1,306 @@
+{% load static %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Drugs and Fake ids: Datamining the dark web</title>
+
+ <!-- Bootstrap Core CSS -->
+    <link href="{% static 'css/bootstrap.min.css'  %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/grayscale.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-globe"></i>  <span class="light">Data Mining</span> The Dark Web
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#download">Timeline</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#findings">Findings</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#demo">Demo</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">Data Mining The Dark Web</h1>
+                        <a href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>About this project</h2>
+                <p>Apart from the “visible”, surface web a “deep” and darker web does exist. <a>The dark web</a> relies in the combined availability of crypto currencies and anonymisation to work as a market place for drugs, documents, weapons and illegal items in general.</p>
+                <p>The dark web has been under scrutiny from legal authorities – both in the US and in other countries, with mixed success: while many web sites have been shut down, other resurface soon after.</p>
+                <p>In this Research Project we attempt to gain insight on this markets using a number of <a>data mining</a> and data analysis techniques and software packages</p>
+                <p>We hope the outcomes of this research to <a>support legal authorities</a> on their war against this dark markets as well as anyone with interest in the area</p>
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                <div class="col-lg-12">
+                <h2> Timeline of the Dark Web </h2>
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="{% static 'img/logos/silk.jpg' %}" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>February 2011-October 2013</h4>
+                                    <h4 class="subheading">The Silk Road</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="">
+                                    It was the first dark web market place for illegal products to be established. With the combined efforts of FBI and EUROPOL the site was closed in 2011 but was later re-established online to be seized once again in 2013
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="{% static 'img/logos/fbi.png' %}" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>September 2014</h4>
+                                    <h4 class="subheading">Operation Onymous</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="">In the context of the largest operation against the dark web markets, a number of international law enforcement agencies, led by the FBI seized over 400 sites.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="{% static 'img/logos/agora.jpg' %}" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>February 2014 - January 2016</h4>
+                                    <h4 class="subheading">The Rise of Agora</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="">It didn't take long until a new site took the throne of the Silk Road as the largest market place in the dark web.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="{% static 'img/logos/uel.png' %}" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4> Summer 2015</h4>
+                                    <h4 class="subheading"></h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="">Dr. Andres Baravalle starts the research programme to which this project belongs. </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="{% static 'img/logos/isis.jpg' %}" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4> 2016 </h4>
+                                    <h4 class="subheading"></h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="">The fake passports and IDs market on the dark web becomes increasingly relevant for the authorities after realizing that members of ISIS may be travelling around Europe with the help of these documents. </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!--  Findings Section -->
+    <section id="findings" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Project Findings</h2>
+                <ol>
+                    <li>The Drug listings cope over <a>80%</a> of the total market</li>
+                    <li><a>USA</a>, <a>UK</a> and <a>Australia</a> are home for most of the drug distribution chains</li>
+                    <li>The value of the drugs market over the period of 2 months was of £25 million. One can buy up to <a>10kg of Cocaine</a> from a single operation</li>
+                    <li> <a>Passports</a>, European and American <a>ID cards</a> are on sale, completely customizable.
+                    <li>Leads were found that suggest the existance of large criminal organizations operating behind the drugs market:
+                        <ul>
+                            <li>The 10% largest vendors are responsible for <a>90%</a> of the market</li>
+                            <li>Drugs are provided from a number of countries by the largest drug dealers</li>
+                            <li>This group of vendors provide  on average over <a>5</a> different <a>drug categories</a></li>
+                        </ul>
+
+
+                </ol>
+            </div>
+        </div>
+    </section>
+
+        <!-- Demo Section -->
+    <section id="demo" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Agora Demo</h2>
+                <p>As Agora has been seized, this section replicates the original listings extracted from the site</p>
+                <div class="listing">
+                    <div class="col-lg-4">
+                        <button id="show-image" class="btn btn-default btn-sm"><span class="network-name">Show image</span></button>
+                        <div id="listing_image"></div>
+                    </div>
+                    <div class="col-lg-8">
+                        <p id="listing_category"><b>Category: </b></p>
+                        <p id="listing_title"><b>Title: </b></p>
+                        <p>Post:</p>
+                        <div id="listing_description" class="well"></div>
+                    </div>
+                </div>
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <button id="show-me" class="btn btn-default btn-lg"><span class="network-name">Show me</span></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <br><br><br>    
+    <!-- Contact Section -->
+    <section id="contact" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Contact</h2>
+                <p>All the code and resources are available from the project's Github repository</p>
+                <p><a href="mailto:mauro,msl@outlook.com">mauro.msl@outlook.com</a>
+                </p>
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <a href="https://github.com/mauromsl/dark_web_datamining" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div id="map"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p> This project is distributed under the <a href="http://www.gnu.org/licenses/gpl-3.0.en.html">GPLv3 License</a></p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.js'  %}"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> 
+    <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js'  %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="{% static 'js/classie.js' %}"></script>
+    <script src="{% static 'js/cbpAnimatedHeader.js' %}"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'js/grayscale.js' %}"></script>
+
+    <script type="text/javascript">
+        $('#show-me').click(function(){
+            console.log('asdasd');
+            $('.listing').show();
+            $.ajax({url: {% url 'random_item' %}, 
+                success: function(result){
+                    console.log(result);
+                    $("#listing_title").hide().html('<b>Title: </b>' + result.product_title).fadeIn(500);
+                    $("#listing_description").hide().html(result.product_description).fadeIn(500);
+                    $("#listing_category").hide().html('<b>Category: </b>' + result.product_category).fadeIn(500);
+                    $("listing_image").html('<img  src="/static/mining/'+result.product_image+'">');                
+                }
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
