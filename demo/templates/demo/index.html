@@ -52,19 +52,19 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll green" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download">Timeline</a>
+                        <a class="page-scroll green" href="#download">Timeline</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#findings">Findings</a>
+                        <a class="page-scroll green" href="#findings">Findings</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#demo">Demo</a>
+                        <a class="page-scroll green" href="#demo">Demo</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll green" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -219,19 +219,20 @@
                 <p>As Agora has been seized, this section replicates the original listings extracted from the site</p>
                 <div class="listing">
                     <div class="col-lg-4">
-                        <button id="show-image" class="btn btn-default btn-sm"><span class="network-name">Show image</span></button>
-                        <div id="listing_image"></div>
+                        <a><p>Image: </p></a>
+                        <div id="listing_image">stuff</div>
                     </div>
                     <div class="col-lg-8">
                         <p id="listing_category"><b>Category: </b></p>
                         <p id="listing_title"><b>Title: </b></p>
-                        <p>Post:</p>
+                        <p id="listing_price"><b>Price: </b></p>
                         <div id="listing_description" class="well"></div>
                     </div>
                 </div>
                 <ul class="list-inline banner-social-buttons">
                     <li>
-                        <button id="show-me" class="btn btn-default btn-lg"><span class="network-name">Show me</span></button>
+                        <button id="show-me" class="btn btn-default btn-lg"><span class="network-name">Generate Listing</span></button>
+                        <button id="show-image" class="btn btn-default btn-lg"><span class="network-name">Show image</span></button>
                     </li>
                 </ul>
             </div>
@@ -286,17 +287,27 @@
 
     <script type="text/javascript">
         $('#show-me').click(function(){
-            console.log('asdasd');
             $('.listing').show();
+            $('#show-image').show()
             $.ajax({url: {% url 'random_item' %}, 
                 success: function(result){
                     console.log(result);
-                    $("#listing_title").hide().html('<b>Title: </b>' + result.product_title).fadeIn(500);
+                    $("#listing_title").hide().html('<a>Title: </a>' + result.product_title).fadeIn(500);
                     $("#listing_description").hide().html(result.product_description).fadeIn(500);
-                    $("#listing_category").hide().html('<b>Category: </b>' + result.product_category).fadeIn(500);
-                    $("listing_image").html('<img  src="/static/mining/'+result.product_image+'">');                
+                    $("#listing_category").hide().html('<a>Category: </a>' + result.product_category).fadeIn(500);
+                    $("#listing_price").hide().html('<a>Price: </a>' + result.product_gbp + 'GBP').fadeIn(500);
+                    if (result.product_image) {
+                        $("#listing_image").html('<img  class="img-responsive" src="/static/mining/'+result.product_image+'">');
+                    }else{
+                        $("#listing_image").html('No image for this listing');
+                    }                
                 }
             });
+        });
+    </script>
+    <script type="text/javascript">
+        $('#show-image').click(function(){
+            $('#listing_image').toggle();
         });
     </script>
 

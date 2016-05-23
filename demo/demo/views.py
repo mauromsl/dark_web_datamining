@@ -26,7 +26,8 @@ def random_item(request):
 		'product_title': item[0][0],
 		'product_description': item[0][1],
 		'product_image': item[0][2],
-		'product_category':item[0][3]
+		'product_category':item[0][3],
+        'product_gbp': str(item[0][4])
 	}
 
 	json_response = json.dumps(response_dict)
@@ -56,7 +57,7 @@ def get_random_item():
     number = random.randint(1,30000)
     return query(
         '''
-        SELECT product_name, product_description, product_picture, B.subCategory_name
+        SELECT product_name, product_description, product_picture, B.subCategory_name, GBP
         FROM tblProduct
         JOIN tblSubCategory B
         	ON B.subCategory_id = tblProduct.subCategory_id

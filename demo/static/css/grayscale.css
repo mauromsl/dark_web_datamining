@@ -594,3 +594,11 @@ ol {
 #listing_image {
     display:none;
 }
+
+.green {
+color: #42dca3 !important; 
+}
+
+#show-image {
+    display: none;
+}
