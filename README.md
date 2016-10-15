@@ -16,10 +16,5 @@ Then proceed to copy the default settings into your settings.py file:
 cp python_src/default_settings.py python_src/settings.py
 ```
 
-Don't forget to change the settings as per your own set up.
+Don't forget to change the database connection settings as per your own set up.
 
-
-###Notebook
-Later on, a Jupyter notebook will be added where we will allow anyone to:
- * See the outcome of the analysis
- * Interact with the code (python and R)

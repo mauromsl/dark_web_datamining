@@ -80,8 +80,10 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Data Mining The Dark Web</h1>
+                        <h2 class="green" style="font-size:18">(Click the button to start exploring)</h2>
                         <a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
+
                         </a>
                     </div>
                 </div>
@@ -96,8 +98,8 @@
                 <h2>About this project</h2>
                 <p>Apart from the “visible”, surface web a “deep” and darker web does exist. <a>The dark web</a> relies in the combined availability of crypto currencies and anonymisation to work as a market place for drugs, documents, weapons and illegal items in general.</p>
                 <p>The dark web has been under scrutiny from legal authorities – both in the US and in other countries, with mixed success: while many web sites have been shut down, other resurface soon after.</p>
-                <p>In this Research Project we attempt to gain insight on this markets using a number of <a>data mining</a> and data analysis techniques and software packages</p>
-                <p>We hope the outcomes of this research to <a>support legal authorities</a> on their war against this dark markets as well as anyone with interest in the area</p>
+                <p>In this Research Project we attempt to gain insight on this markets using a number of <a>data mining</a> and data analysis techniques and software packages.</p>
+                <p>We hope the outcome of this research will <a>support cyber crime authorities</a> on their war against these dark markets as well as anyone with an interest in the area</p.>
 
                 
             </div>
@@ -295,7 +297,7 @@
                     $("#listing_title").hide().html('<a>Title: </a>' + result.product_title).fadeIn(500);
                     $("#listing_description").hide().html(result.product_description).fadeIn(500);
                     $("#listing_category").hide().html('<a>Category: </a>' + result.product_category).fadeIn(500);
-                    $("#listing_price").hide().html('<a>Price: </a>' + result.product_gbp + 'GBP').fadeIn(500);
+                    $("#listing_price").hide().html('<a>Price: </a>' + result.product_gbp + ' GBP').fadeIn(500);
                     if (result.product_image) {
                         $("#listing_image").html('<img  class="img-responsive" src="/static/mining/'+result.product_image+'">');
                     }else{
